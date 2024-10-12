@@ -1,0 +1,71 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Slider</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/testimonials.css' %}">
+</head>
+<body>
+    <div class="title">
+        <h1>TESTIMONIALS</h1>
+    </div>
+    
+    <div class="slider">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial active">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"Snit Solutions exceeded our expectations with their exceptional service and dedication. Their team’s expertise and attention to detail have made a significant impact on our business operations. Truly a trusted partner!"</p>
+            <h4>Isha, Designer</h4>
+        </div>
+        <div class="testimonial">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"We’ve had a great experience with Snit Solutions. Their commitment to delivering timely, top-notch solutions has made them a valuable asset to our business. They are reliable, responsive, and truly understand our goals."</p>
+            <h4>Shriya, Developer</h4>
+        </div>
+        <div class="testimonial">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"Working with Snit Solutions has been an absolute pleasure. Their team is professional, efficient, and consistently delivers high-quality results. They understand our needs and go above and beyond to meet them. Highly recommend their services!"</p>
+            <h4>Sonu, Marketing</h4>
+        </div> 
+        <div class="testimonial">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.dG310mLViO5MZMHrK_oUHwHaHZ&pid=Api&P=0&h=180" alt="Client Photo">
+            <p>"Snit Solutions has been instrumental in helping us streamline our processes. Their innovative approach and excellent customer service set them apart. We’ve seen tangible improvements thanks to their expertise and dedication."</p>
+            <h4>Sam, Manager</h4>
+        </div>
+    </div>
+
+    <script>
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentIndex = 0;
+        const testimonialDuration = 5000;
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.remove('active');
+                if (i === index) {
+                    testimonial.classList.add('active');
+                }
+            });
+        }
+
+        function startAutoSlider() {
+            setInterval(() => {
+                currentIndex++;
+                if (currentIndex >= testimonials.length) {
+                    currentIndex = 0;
+                }
+                showTestimonial(currentIndex);
+            }, testimonialDuration);
+        }
+
+        showTestimonial(currentIndex);
+        startAutoSlider();
+    </script>
+
+</body>
+</html>

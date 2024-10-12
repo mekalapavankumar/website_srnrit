@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/job_applicaton.css' %}">
+</head>
+<body>
+    {% include 'websites/menubar.html' %}
+    <div class="blue-white-background"></div>
+        <div class="container">
+            <h2 class="text-center heading">Job Application Form</h2>
+            <p class="text-center">Please fill in the form to apply for a position with our company.</p>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            {{ form.first_name.label_tag }}
+                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter your first name" style="width: 100%; height: 40px;">
+                            {% if form.first_name.errors %}
+                                <div class="error">{{ form.first_name.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6 text-left">
+                            {{ form.last_name.label_tag }}
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter your last name" style="width: 100%; height: 40px;">
+                            {% if form.last_name.errors %}
+                                <div class="error">{{ form.last_name.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group text-left">
+                    {{ form.email_address.label_tag }}
+                    <input type="email" class="form-control" id="email_address" name="email_address" placeholder="example@gmail.com" style="width: 100%; height: 40px;">
+                    {% if form.email_address.errors %}
+                        <div class="error">{{ form.email_address.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-group text-left">
+                    {{ form.phone_number.label_tag }}
+                    <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="123-456-7890" style="width: 100%; height: 40px;">
+                    {% if form.phone_number.errors %}
+                        <div class="error">{{ form.phone_number.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-group text-left">
+                    {{ form.position_applied_for.label_tag }}
+                    <select class="form-control" id="position_applied_for" name="position_applied_for" style="width: 100%; height: 40px;">
+                        <option value="">Select Position</option>
+                        <option value="Python">Python</option>
+                        <option value="Java">Java</option>
+                        <option value="Testing">Testing</option>
+                    </select>
+                    {% if form.position_applied_for.errors %}
+                        <div class="error">{{ form.position_applied_for.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-group text-left">
+                    <h4 class="heading">Attach your resume/CV in PDF format.</h4>
+                    {{ form.resume_cv }}
+                    {% if form.resume_cv.errors %}
+                        <div class="error">{{ form.resume_cv.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-group text-left">
+                    {{ form.cover_letter.label_tag }}
+                    <textarea class="form-control" id="cover_letter" name="cover_letter" rows="3" style="width: 80%; resize: none;" placeholder="Enter your cover letter"></textarea>
+                    {% if form.cover_letter.errors %}
+                        <div class="error">{{ form.cover_letter.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-group text-left blue-background">
+                    {{ form.current_level_of_experience.label_tag }}
+                    {{ form.current_level_of_experience }}
+                    {% if form.current_level_of_experience.errors %}
+                        <div class="error">{{ form.current_level_of_experience.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-group text-left">
+                    {{ form.earliest_possible_start_date.label_tag }}
+                    <input type="date" class="form-control" id="earliest_possible_start_date" name="earliest_possible_start_date" placeholder="YYYY-MM-DD" style="width: 100%; height: 40px;">
+                    {% if form.earliest_possible_start_date.errors %}
+                        <div class="error">{{ form.earliest_possible_start_date.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-group text-left">
+                    {{ form.consent_to_privacy_policy.label_tag }}
+                    {{ form.consent_to_privacy_policy }}
+                    {% if form.consent_to_privacy_policy.errors %}
+                    <div class="error">{{ form.consent_to_privacy_policy.errors }}</div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Application</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+

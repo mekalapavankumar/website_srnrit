@@ -1,0 +1,215 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SN IT Solutions</title>
+    <!-- <link rel="stylesheet" href="styles.css">  -->
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    <div class="com-name">
+    <header>
+        <h1>SN IT SOLUTIONS</h1>
+    </header>
+        <!-- <navbar class="">
+        <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/register/">Register</a></li>
+            <li><a href="/contact_us/">Contact Us</a></li>
+            <li><a href="/login/">Login</a></li>
+        </ul>
+    </navbar> -->     {% include 'websites/menubar.html'%} 
+
+    <!-- <nav class="navbar">
+        <ul class="navbar-links">
+            <div class="navbar-left">
+                <li class="nav-item">
+                    <a href="/about/" class="nav-link">About</a>
+                </li>&nbsp;&nbsp;&nbsp;
+                <li class="nav-item">
+                  <a href="/contact_us/" class="nav-link">Contact Us</a>
+                </li>&nbsp;&nbsp;&nbsp;
+              <li class="nav-item">
+                <a href="/register/" class="nav-link">Register<a>
+            </li>&nbsp;&nbsp;&nbsp;
+             <li class="login-item">
+        <a href="/login/" class="login-button">Login</a>
+    </li>
+    
+     </ul> 
+     </nav> -->
+
+
+     <nav class="navbar">
+        <ul class="navbar-links">
+            <div class="navbar-left">
+                <!-- Navigation Links -->
+                <li class="nav-item">
+                    <a href="/about/" class="nav-link">About</a>
+                </li>&nbsp;&nbsp;&nbsp;
+                <li class="nav-item">
+                  <a href="/contact_us/" class="nav-link">Contact Us</a>
+                </li>&nbsp;&nbsp;&nbsp;
+              <li class="nav-item">
+                <a href="/register/" class="nav-link">Register<a>
+            </li>&nbsp;&nbsp;&nbsp;
+             <li class="login-item">
+        <a href="/login/" class="login-button">Login</a>
+    </li>
+    
+     </ul> 
+     </nav>
+
+
+</div>
+    <div>
+    <p class="welcome-text">WELCOME TO SN IT SOLUTIONS !!</p>
+    </div>
+   
+    <div class="image-container">
+        <img src="../../static/images/SNIT.jpg" alt="SN IT Solutions Image">
+    </div>
+
+    
+    <section class="about-section">
+        <p>We are dedicated to driving innovation and delivering top-notch technology services to our clients.<br>
+            Our commitment to excellence, combined with our expertise in software development and cloud solutions, ensures that we bring your visions to life.
+        </p>
+    </section>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search here..." name="search">
+        <button onclick="searchFunction()"><i class="fas fa-search"></i></button>
+    </div>
+
+    <script>
+        function searchFunction() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+    
+      const pages = {
+        "login": "/login/",
+        "about": "/about/",
+        "organisation details": "/organisation_details/",
+        "careers": "/career/",
+        "terms and conditions": "/terms_conditions/",
+        "our team": "/ourteam/",
+        "privacy policies": "/privacy/",
+        "contact us": "/contactus/",
+        "faq": "/faq/",
+        "register": "/Register/"
+      };
+    
+      if (pages[input]) {
+        window.location.href = pages[input];
+      } else {
+        alert("No matching page found for: " + input);
+      }
+    }
+    </script>
+
+
+    <!-- <div class="title"></div>
+        <h1 style="margin-left: 35%;">TESTIMONIALS</h1>
+    </div> -->
+    
+
+    <div class="slider" style="margin-left: 30%;">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial active">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"Snit Solutions exceeded our expectations with their exceptional service and dedication. Their team’s expertise and attention to detail have made a significant impact on our business operations. Truly a trusted partner!"</p>
+            <h4>Isha, Designer</h4>
+        </div>
+        <div class="testimonial">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"We’ve had a great experience with Snit Solutions. Their commitment to delivering timely, top-notch solutions has made them a valuable asset to our business. They are reliable, responsive, and truly understand our goals."</p>
+            <h4>Shriya, Developer</h4>
+        </div>
+        <div class="testimonial">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"Working with Snit Solutions has been an absolute pleasure. Their team is professional, efficient, and consistently delivers high-quality results. They understand our needs and go above and beyond to meet them. Highly recommend their services!"</p>
+            <h4>Sonu, Marketing</h4>
+        </div> 
+        <div class="testimonial">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.dG310mLViO5MZMHrK_oUHwHaHZ&pid=Api&P=0&h=180" alt="Client Photo">
+            <p>"Snit Solutions has been instrumental in helping us streamline our processes. Their innovative approach and excellent customer service set them apart. We’ve seen tangible improvements thanks to their expertise and dedication."</p>
+            <h4>Sam, Manager</h4>
+        </div>
+    </div>
+
+    <script>
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentIndex = 0;
+        const testimonialDuration = 5000;
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.remove('active');
+                if (i === index) {
+                    testimonial.classList.add('active');
+                }
+            });
+        }
+
+        function startAutoSlider() {
+            setInterval(() => {
+                currentIndex++;
+                if (currentIndex >= testimonials.length) {
+                    currentIndex = 0;
+                }
+                showTestimonial(currentIndex);
+            }, testimonialDuration);
+        }
+
+        showTestimonial(currentIndex);
+        startAutoSlider();
+    </script>
+
+  <!-- <div class="con-div">
+    <h2 style="text-align: center;">Contact Us</h2>
+{% include 'websites/contactus.html'%}  
+
+ </div> -->
+ <h2 style="text-align: center;">Contact Us</h2>
+  <div class="container">
+    <div class="contact">
+<h1>Contact Us</h1>
+<form method="POST" action="{% url 'send_mail' %}">
+    {% csrf_token %}
+    <label for="name" >Your Name:</label>
+    <input type="text" name="name" placeholder="Enter your name"required><br><br>
+    <label for="email">Your Email:</label>
+    <input type="email" name="email" placeholder="Enter your email" required><br><br>
+    <label for="message">Message:</label>
+    <textarea name="message" placeholder="Enter your message"required></textarea><br><br>
+    <div style="text-align: center;">
+    <button type="submit">Send</button>
+</div>
+    </form>
+</div>
+<div class="content">
+<h1>SN IT SOLUTIONS</h1>
+<p> If you have any questions or need assistance, please don't hesitate to contact us using 
+    the information provided. We are here to help you!</p>
+    <h2>Contact Information</h2>
+    <p><strong>Email: </strong>snitsolutions2024@gmail.com</p>
+    <p><strong>Phone: </strong>(123) 456-7890</p>
+    <p><strong>Address: </strong>501, Kailashnath Arcade, plot-1-65/A/1/62, opp. HDFC Bank Lane, Kakatiya Hills,
+        Guttala_Begumpet, Kavuri Hills, Madhapur, Hyderabad, Telangana 500081.</p>
+</div>
+</div> 
+    <!-- Footer Section -->    
+    <footer>
+        <div>
+            <h5>Contact Info</h5>
+            <a href="mailto:snitsolutions2024@gmail.com?subject=Inquiry&body=Hello%20there!" class="footer-link">✉ snitsolutions2024@gmail.com</a>
+        </div>
+    </footer>
+</body>
+</html>

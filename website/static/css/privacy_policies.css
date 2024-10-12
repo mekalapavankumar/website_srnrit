@@ -1,0 +1,288 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+
+    body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    }
+
+    /* Header Section */
+    .header {
+    background-color: cornflowerblue;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    }
+
+    .header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    }
+
+    /* Navigation Menu */
+
+    .nav {
+    width: 200px;
+    height: 300px;
+    margin: auto;
+    margin-left: 120px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon {
+    width: 150px;
+    height: 30px;
+    margin: 20px auto;
+    }
+
+    .icon .logo {
+    color: rgb(94, 158, 214);
+    font-size: 35px;
+    font-family: Arial;
+    padding-top: 20px;
+    height: 150px;
+    width: 150px;
+    margin-top: 10px;
+    border-radius: 50%;
+    }
+
+    .menu {
+    width: 800px;
+    float: left;
+    height: 50px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    }
+
+    .menu ul {
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 400px;
+    }
+
+    .menu ul li {
+    list-style: none;
+    margin-left: 92px;
+    margin-top: -10px;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .menu ul li a {
+    text-decoration: none;
+    color: rgb(245, 244, 244);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+    }
+
+    .menu ul li a:hover {
+    color: aqua;
+    }
+
+    /* Privacy Policy Section */
+
+    .privacy-section {
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .privacy-section h2 {
+    font-size: 1.8em;
+    color: #0044cc;
+    margin-bottom: 30px;
+    }
+
+    .privacy-section p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    line-height: 1.7;
+    }
+
+    .privacy-section ul {
+    list-style-type: disc;
+    margin: 10px 0 20px 20px;
+    }
+
+    .privacy-section ul li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    }
+
+    /* Footer Section */
+
+    .footer {
+    background-color: cornflowerblue;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    }
+
+    .footer p {
+    font-size: 1em;
+    }
+
+    /* Responsive Styles */
+
+    /* Medium Screen (Tablet) */
+    @media only screen and (max-width: 768px) {
+    .nav {
+        width: 150px;
+        height: 200px;
+        margin-left: 60px;
+    }
+
+    .icon {
+        width: 100px;
+        height: 20px;
+    }
+
+    .icon .logo {
+        font-size: 25px;
+        padding-top: 10px;
+        height: 100px;
+        width: 100px;
+    }
+
+    .menu {
+        width: 500px;
+        height: 40px;
+    }
+
+    .menu ul {
+        margin-left: 200px;
+    }
+
+    .menu ul li {
+        margin-left: 40px;
+    }
+
+    .privacy-section {
+        padding: 15px;
+    }
+
+    .privacy-section h2 {
+        font-size: 1.5em;
+    }
+
+    .privacy-section p {
+        font-size: 1em;
+    }
+
+    .footer {
+        padding: 15px 0;
+    }
+    }
+
+    /* Small Screen (Mobile) */
+    @media only screen and (max-width: 480px) {
+    .nav {
+        width: 100px;
+        height: 150px;
+        margin-left: 30px;
+    }
+
+    .icon {
+        width: 80px;
+        height: 15px;
+    }
+
+    .icon .logo {
+        font-size: 20px;
+        padding-top: 5px;
+        height: 80px;
+        width: 80px;
+    }
+
+    .menu {
+        width: 300px;
+        height: 30px;
+    }
+
+    .menu ul {
+        margin-left: 100px;
+    }
+
+    .menu ul li {
+        margin-left: 20px;
+    }
+
+    .privacy-section {
+        padding: 10px;
+    }
+
+    .privacy-section h2 {
+        font-size: 1.2em;
+    }
+
+    .privacy-section p {
+        font-size: 0.9em;
+    }
+
+    .footer {
+        padding: 10px 0;
+    }
+    }
+
+    /* Extra Small Screen (Mobile) */
+    @media only screen and (max-width: 320px) {
+    .nav {
+        width: 80px;
+        height: 120px;
+        margin-left: 20px;
+    }
+
+    .icon {
+        width: 60px;
+        height: 10px;
+    }
+
+    .icon .logo {
+        font-size: 15px;
+        padding-top: 5px;
+        height: 60px;
+        width: 60px;
+    }
+
+    .menu {
+        width: 200px;
+        height: 20px;
+    }
+
+    .menu ul {
+        margin-left: 50px;
+    }
+
+    .menu ul li {
+        margin-left: 10px;
+    }
+
+    .privacy-section {
+        padding: 5px;
+    }
+
+    .privacy-section h2 {
+        font-size: 1em;
+    }
+
+    .privacy-section p {
+        font-size: 0.8em;
+    }
+
+    .footer {
+        padding: 5px 0;
+    }
+    }

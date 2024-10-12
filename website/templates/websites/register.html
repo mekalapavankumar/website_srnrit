@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Register Page</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-control {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-control:focus {
+            border-color: #aaa;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #3e8e41;
+        }
+        .toggle-password {
+            cursor: pointer;
+        }
+        .fa-eye-slash {
+            color: #666;
+        }
+        .fa-eye {
+            color: #666;
+        }
+        .error {
+            color: #f00;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        input[type="password"]::-ms-reveal,
+        input[type="password"]::-ms-clear {
+        display: none;
+        }
+    </style>
+</head>
+<body>
+    {% include 'websites/menubar.html' %}
+    <div class="container">
+        <h2 class="text-center">Register</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> Please correct the following errors:
+                    <ul>
+                        {% for field in form %}
+                            {% if field.errors %}
+                                <li>{{ field.label }}: {{ field.errors }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label for="first_name">{{ form.first_name.label }}</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter first name" value="{{ form.first_name.value|default_if_none:'' }}">
+                {% if form.first_name.errors %}
+                    <div class="error">{{ form.first_name.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="last_name">{{ form.last_name.label }}</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter last name" value="{{ form.last_name.value|default_if_none:'' }}">
+                {% if form.last_name.errors %}
+                    <div class="error">{{ form.last_name.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="email">{{ form.email.label }}</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="{{ form.email.value|default_if_none:'' }}">
+                {% if form.email.errors %}
+                    <div class="error">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="password">{{ form.password.label }}</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" >
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-fw fa-eye-slash toggle-password" id="toggle-password"></i></span>
+                    </div>
+                </div>
+                {% if form.password.errors %}
+                    <div class="error">{{ form.password.errors }}</div>
+                {% endif %}
+            </div>
+                        
+            <div class="form-group">
+                <label for="confirm_password">{{ form.confirm_password.label }}</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm password" >
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-fw fa-eye-slash toggle-password" id="toggle-confirm-password"></i></span>
+                    </div>
+                </div>
+                {% if form.confirm_password.errors %}
+                    <div class="error">{{ form.confirm_password.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="text-left mt-3">
+                Already have an account? <a href="{% url 'login' %}" class="text-decoration-none"><b>Login here</b></a>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        // Get the password and confirm password fields
+    const passwordField = document.getElementById('password');
+    const confirmPasswordField = document.getElementById('confirm_password');
+
+    // Get the toggle password and confirm password icons
+    const togglePasswordField = document.getElementById('toggle-password');
+    const toggleConfirmPasswordField = document.getElementById('toggle-confirm-password');
+
+    // Add event listeners to the toggle icons
+    togglePasswordField.addEventListener('click', () => {
+        // Toggle the type of the password field
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            togglePasswordField.classList.remove('fa-eye-slash');
+            togglePasswordField.classList.add('fa-eye');
+        } else {
+            passwordField.type = 'password';
+            togglePasswordField.classList.remove('fa-eye');
+            togglePasswordField.classList.add('fa-eye-slash');
+        }
+    });
+
+    toggleConfirmPasswordField.addEventListener('click', () => {
+        // Toggle the type of the confirm password field
+        if (confirmPasswordField.type === 'password') {
+            confirmPasswordField.type = 'text';
+            toggleConfirmPasswordField.classList.remove('fa-eye-slash');
+            toggleConfirmPasswordField.classList.add('fa-eye');
+        } else {
+            confirmPasswordField.type = 'password';
+            toggleConfirmPasswordField.classList.remove('fa-eye');
+            toggleConfirmPasswordField.classList.add('fa-eye-slash');
+        }
+    });
+    // Handle paste event in the Confirm Password field
+    document.getElementById('confirm_password').addEventListener('paste', function(e) {
+                e.preventDefault();
+    
+                // Display the error message below the Confirm Password field
+                const errorDiv = document.getElementById('confirm-password-error');
+                errorDiv.textContent = 'Pasting is not allowed in the Confirm Password field. Please type your password.';
+                errorDiv.style.display = 'block';
+            });
+    
+            // Hide the error message when user starts typing in the Confirm Password field
+            document.getElementById('confirm_password').addEventListener('input', function() {
+                const errorDiv = document.getElementById('confirm-password-error');
+                errorDiv.style.display = 'none';
+            });
+    </script>
+</body>
+</html>

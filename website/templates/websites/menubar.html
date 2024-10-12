@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menubar</title>
+    <link rel="stylesheet" href="{% static 'css/menubar.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <div id="overlay"></div>
+    <div class="hamburger-menu" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="{% url 'home'%}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="{% url 'about'%}"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="{% url 'career' %}"><i class="fas fa-briefcase"></i> Career</a></li>
+            <li><a href="{% url 'terms_conditions'%}"><i class="fas fa-file-contract"></i> Terms and Conditions</a></li>
+            <li><a href="{% url 'privacy_policies'%}"><i class="fas fa-lock"></i> Privacy Policies</a></li>
+            <li><a href="{% url 'faq'%}"><i class="fas fa-question-circle"></i> FAQs</a></li>
+            <li><a href="{% url 'contactus'%}"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            <li><a href="{% url 'login'%}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+            <li><a href="{% url 'register'%}"><i class="fas fa-user-plus"></i> Register</a></li>
+        </ul>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const links = document.querySelectorAll('.sidebar ul li a');
+
+        // Function to toggle sidebar and overlay
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // to open sidebar
+        hamburgerMenu.addEventListener('click', toggleSidebar);
+
+        // to close sidebar
+        overlay.addEventListener('click', toggleSidebar);
+
+        //  to Close sidebar when clicking on any link inside
+        links.forEach(link => {
+            link.addEventListener('click', function (event) {
+                // Prevent link action until sidebar closes
+                event.preventDefault();
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+
+                // Redirect after closing animation finishes
+                setTimeout(() => {
+                    window.location.href = link.href;
+                }, 300);  // Wait for 0.3s to match the transition time
+            });
+        });
+    });
+    </script>
+</body>
+</html>

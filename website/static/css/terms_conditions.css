@@ -1,0 +1,188 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.header {
+    background-color: cornflowerblue;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.terms-header {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+}
+
+.terms-content {
+    padding: 20px;
+}
+
+.terms-content h2 {
+    margin-top: 20px;
+}
+
+.terms-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.terms-content li {
+    margin-bottom: 10px;
+}
+
+.policy-section {
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.col-md-6 {
+    flex-basis: 45%;
+    margin: 10px;
+}
+
+h1 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.footer {
+    background-color: cornflowerblue;
+    color: #fff;
+    padding: 10px;
+    margin-top: 5%;
+    text-align: center;
+    clear: both;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .terms-header {
+        padding: 10px;
+    }
+    .terms-content {
+        padding: 10px;
+    }
+
+    .terms-content h2 {
+        margin-top: 10px;
+    }
+
+    .terms-content ul {
+        padding: 0;
+    }
+
+    .terms-content li {
+        margin-bottom: 5px;
+    }
+    .policy-section {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .dos-donts {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .col-md-6 {
+        flex-basis: 100%;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+    .terms-header {
+        padding: 5px;
+    }
+    .terms-content {
+        padding: 5px;
+    }
+
+    .terms-content h2 {
+        margin-top: 5px;
+    }
+
+    .terms-content ul {
+        padding: 0;
+    }
+
+    .terms-content li {
+        margin-bottom: 2px;
+    }
+
+    .row {
+        display: block;
+    }
+
+    .col-md-6 {
+        flex-basis: 100%;
+        margin: 5px;
+    }
+
+    .policy-section {
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+    .dos-donts {
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 320px) {
+    .terms-content {
+        padding: 2px;
+    }
+
+    .terms-content h2 {
+        margin-top: 2px;
+    }
+
+    .terms-content ul {
+        padding: 0;
+    }
+
+    .terms-content li {
+        margin-bottom: 1px;
+    }
+
+    .row {
+        display: block;
+    }
+
+    .col-md-6 {
+        flex-basis: 100%;
+        margin: 5px;
+    }
+}

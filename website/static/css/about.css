@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    color: #fff;
+    height: 100%;
+    overflow-x: hidden;
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+h1, h2 {
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+p {
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6); 
+    padding: 40px;
+    border-radius: 10px;
+    margin: 80px auto;
+    max-width: 800px;
+}
+
+
+/* About Section */
+.about-section {
+    min-height: 100vh; 
+    padding: 120px 20px 40px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.about-section p {
+    margin-bottom: 20px;
+}
+
+
+
+.about-section a {
+    color: #f1f1f2;
+    text-decoration:none;
+    font-size:large;
+    margin: 0 1%;
+    
+}
+
+/* .about-section a:hover {
+    text-decoration: underline;
+} */
+
+/* Styling for Images */
+  .about-img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 2px solid #fff;
+}
+
+.image-gallery {
+    display: flex;            
+    /* justify-content: center;   */
+    gap: 20px;  
+    flex-wrap: wrap;
+    justify-content: space-evenly;              
+}
+
+.image-item {
+    background: #fff;        
+    border-radius: 8px;      
+    overflow: hidden;        
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    margin: 5px;
+}
+
+.image-item img {
+    width: 200px;            
+    height: 250px;            
+    display: block;          
+}
+
+.image-item p {
+    margin: 10px 0;          
+    font-size: 1em;         
+    color: #333;          
+}
+
+.image-item h5 {
+    margin: 10px 0;         
+    font-size: 1em;          
+    color: #333;            
+}
+
+
+
+/* Footer */
+ footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    margin-top: 30px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    
+} 
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .image-item {
+        width: 45%; /* Adjust width to fit smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-item {
+        width: 100%; /* Full width on small mobile screens */
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+ 
+
+

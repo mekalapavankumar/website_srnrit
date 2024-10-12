@@ -1,0 +1,54 @@
+/* static/css/style.css */
+
+/* Navbar styles */
+.navbar {
+    background-color: cornflowerblue;
+    
+
+}
+
+.navbar-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; /* Align links to the right */
+    align-items: center;
+}
+
+.navbar-left {
+    display: flex;
+}
+
+.nav-item {
+    margin-right: 20px;
+    
+}
+
+/* Navigation link styles */
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+/* Login button styles */
+.login-button {
+    background-color: white;
+    color: blue;
+    padding: 0px 15px 5px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 25px;
+    /* margin-bottom: 200px; */
+}
+
+
+/* Optional hover effect for nav links */
+.nav-link:hover,
+.login-button:hover {
+    opacity: 0.8;
+}
+
+
+

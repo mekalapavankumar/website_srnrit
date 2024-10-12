@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SN IT Solutions</title>
+    {% load static %}
+    <link href="{% static 'css/menubar.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="com-name">
+        <header>
+            <h1>SN IT SOLUTIONS</h1>
+        </header>
+        <div id="overlay"></div>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="{% url 'home'%}"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="{% url 'about'%}"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="{% url 'career' %}"><i class="fas fa-briefcase"></i> Career</a></li>
+                <li><a href="{% url 'terms_conditions'%}"><i class="fas fa-file-contract"></i> Terms and Conditions</a></li>
+                <li><a href="{% url 'privacy_policies'%}"><i class="fas fa-lock"></i> Privacy Policies</a></li>
+                <li><a href="{% url 'faq'%}"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                <li><a href="{% url 'contactus'%}"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            </ul>
+        </div>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul class="navbar-links" style="display: flex;" >
+                <li class="nav-item">
+                    <a href="/about/" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contactus/" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Welcome Text -->
+    <div class="welcome-container">
+        <p class="welcome-text">WELCOME TO SN IT SOLUTIONS !!</p>
+    </div>
+
+    <!-- Image Section -->
+    <div class="image-container">
+        <img src="../../static/images/SNIT.jpg" alt="SN IT Solutions Image">
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <p>We are dedicated to driving innovation and delivering top-notch technology services to our clients.<br>
+        Our commitment to excellence, combined with our expertise in software development and cloud solutions, ensures that we bring your visions to life.
+        </p>
+    </section>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search here..." name="search">
+        <button onclick="searchFunction()"><i class="fas fa-search"></i></button>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="slider" style="height: 300px;">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial active">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"SN IT Solutions exceeded our expectations with their exceptional service and dedication."</p>
+            <h4>Isha, Designer</h4>
+        </div>
+        <div class="testimonial">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"We've had a great experience with SN IT Solutions. They are reliable, responsive, and understand our goals."</p>
+            <h4>Shriya, Developer</h4>
+        </div>
+        <div class="testimonial">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"Working with SN IT Solutions has been an absolute pleasure. Their team is professional and efficient."</p>
+            <h4>Sonu, Marketing</h4>
+        </div>
+        <div class="testimonial">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.dG310mLViO5MZMHrK_oUHwHaHZ&pid=Api&P=0&h=180" alt="Client Photo">
+            <p>"SN IT Solutions has been instrumental in streamlining our processes."</p>
+            <h4>Sam, Manager</h4>
+        </div>
+    </div>
+
+    <script>
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentIndex = 0;
+        const testimonialDuration = 5000;
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.remove('active');
+                if (i === index) {
+                    testimonial.classList.add('active');
+                }
+            });
+        }
+        function startAutoSlider() {
+            setInterval(() => {
+                currentIndex++;
+                if (currentIndex >= testimonials.length) {
+                    currentIndex = 0;
+                }
+                showTestimonial(currentIndex);
+            }, testimonialDuration);
+        }
+        showTestimonial(currentIndex);
+        startAutoSlider();
+    </script>
+    <!-- Partner Section -->
+    <div class="partner-section">
+        <h3>Our Partners</h3>
+        <div class="image-cont">
+            <img src="../../static/images/capgemini.jpg" alt="Capgemini">
+            <img src="../../static/images/aspire.jpg" alt="Aspire">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <h5>Contact Info</h5>
+            <a href="mailto:snitsolutions2024@gmail.com?subject=Inquiry&body=Hello%20there!" class="footer-link">✉ snitsolutions2024@gmail.com</a>
+        </div>
+    </footer>
+
+    <script>
+        function searchFunction() {
+           
+            let input = document.getElementById("searchInput").value.toLowerCase().trim();
+            // removes multiple spaces and converts them to a single space
+            input = input.replace(/\s+/g, ' ');
+            const pages = {
+                "home":"/home/",
+                "login": "/login/",
+                "about": "/about/",
+                "contact us": "/contactus/",
+                "register": "/register/",
+                "faqs": "/faq/",
+                "career": "/career/",
+                "job_application": "/job_application/",
+                "job application": "/job_application/",
+                "terms_conditions": "/terms_conditions/",
+                "terms and conditions": "/terms_conditions/",
+                "terms & conditions": "/terms_conditions/",
+                "privacy_policies": "/privacy_policies/",
+                "privacy policies": "/privacy_policies/",
+                "privacy & policies": "/privacy_policies/",
+                "privacy and policies": "/privacy_policies/",
+            };
+    
+            // Check if the input matches any page
+            if (pages[input]) {
+                window.location.href = pages[input];
+            } else {
+                alert("No matching page found for: " + input);
+            }
+        }
+    
+        // Event listener for pressing 'Enter' in the search box
+        document.getElementById("searchInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                searchFunction();
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const links = document.querySelectorAll('.sidebar ul li a');
+    
+            // Function to toggle sidebar and overlay
+            function toggleSidebar() {
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+            }
+    
+            // to open sidebar
+            hamburgerMenu.addEventListener('click', toggleSidebar);
+    
+            // to close sidebar
+            overlay.addEventListener('click', toggleSidebar);
+    
+            //  to Close sidebar when clicking on any link inside
+            links.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    // Prevent link action until sidebar closes
+                    event.preventDefault();
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+    
+                    // Redirect after closing animation finishes
+                    setTimeout(() => {
+                        window.location.href = link.href;
+                    }, 300);  // Wait for 0.3s to match the transition time
+                });
+            });
+        });
+        </script>
+<style>
+    /* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* overflow-x: hidden; */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  /* overflow-y: hidden; */
+  overflow-x: hidden;
+  
+}
+
+/* Header Styles */
+.com-name h1 {
+  background-color: cornflowerblue;
+  text-align: center;
+  color: white;
+  padding: 10px 0;
+  font-size: 50px;
+  width: 100%;
+padding-top: 3%;
+overflow-x: hidden;
+
+}
+
+
+
+/* static/css/style.css */
+
+/* Navbar styles */
+.navbar {
+    background-color: cornflowerblue;
+    
+
+}
+
+.navbar-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* display: flex; */
+    justify-content: flex-end; /* Align links to the right */
+    /* align-items: center; */
+}
+
+.navbar-left {
+    display: flex;
+}
+
+.nav-item {
+    margin-right: 20px;
+    
+}
+
+/* Navigation link styles */
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+/* Login button styles */
+.login-button {
+    background-color: white;
+    color: blue;
+    padding: 0px 15px 5px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 25px;
+    margin-right: 5px;
+    /* margin-bottom: 200px; */
+}
+
+
+/* Optional hover effect for nav links */
+.nav-link:hover,
+.login-button:hover {
+    opacity: 0.8;
+}
+
+
+
+
+
+
+/* Welcome Text */
+.welcome-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.welcome-text {
+  font-size: 24px;
+}
+
+/* Image Section */
+.image-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+/* About Section */
+.about-section {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  background-color: #f4f4f4;
+  margin: 20px;
+}
+
+/* Search Bar */
+.search-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.search-container input[type="text"] {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-container button {
+  background-color: skyblue;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #3e8e41;
+}
+
+/* Slider / Testimonial Section */
+.slider {
+  width: 80%;
+  /* height: 30%; */
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  color: cornflowerblue;
+}
+
+.testimonial {
+  display: none;
+  animation: fadeIn 1.5s forwards;
+}
+
+.testimonial.active {
+  display: block;
+}
+
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 4px solid cornflowerblue;
+  
+}
+
+
+.testimonial p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.testimonial h4 {
+  font-size: 16px;
+  color: cornflowerblue;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Partner Section */
+.partner-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.partner-section h3 {
+  color: #1b65ee;
+  font-size: 24px;
+}
+
+.image-cont {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.image-cont img {
+  width: 150px;
+  height: auto;
+}
+
+/* Footer */
+footer {
+  background-color: cornflowerblue;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-links {
+      flex-direction: column;
+      font-size: 18px;
+  }
+
+  .search-container input[type="text"] {
+      width: 80%;
+  }
+
+  .slider {
+      width: 90%;
+  }
+
+  .image-container img {
+      max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-links {
+      font-size: 16px;
+  }
+
+  .search-container input[type="text"] {
+      width: 90%;
+  }
+
+  .slider {
+      width: 95%;
+  }
+
+  .testimonial img {
+      width: 60px;
+      height: 60px;
+  }
+
+  .testimonial p {
+      font-size: 16px;
+  }
+}
+
+</style>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% load static %} 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Contact Form</title> 
+    <link rel="stylesheet" href="{% static 'css/contactus.css' %}"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head> 
+<body> 
+    {% include 'websites/menubar.html'%}
+    <div class="container"> 
+        <div class="contact"> 
+            <h1>Contact Us</h1> 
+            <form method="POST" action="{% url 'send_mail' %}"> 
+                {% csrf_token %} 
+                <label for="name" >Your Name:</label> 
+                <input type="text" name="name" placeholder="Enter your name"required 
+                pattern="^[a-zA-Z]{2,}(| [a-zA-Z]{2,}(| [a-zA-Z]{2,}))$" title="Invalid name format, name should be allowed only letters"><br><br> 
+                <label for="email">Your Email:</label>
+                <input type="email" name="email" placeholder="Enter your email" required
+                pattern="^[a-zA-Z]{2}[a-zA-Z0-9]*@gmail\.com$" title="Invalid email format"><br><br>
+                <label for="message">Message:</label>
+                <textarea name="message" placeholder="Enter your message" required 
+                maxlength="500" rows="5"></textarea><br><br> 
+                <div style="text-align: center;"> 
+                    <button type="submit">Send</button> 
+                </div> 
+            </form> 
+        </div> 
+        <div class="content"> 
+            <h1>SN IT SOLUTIONS</h1> 
+            <p> If you have any questions or need assistance,please don't hesitate to contact us using the information provided.
+                <br> We are here to help you!</p> 
+            <h2>Contact Information</h2> 
+            <p><strong>Email: </strong>snitsolutions2024@gmail.com</p> 
+            <p><strong>Phone: </strong>(123) 456-7890</p> 
+            <p><strong>Address: </strong>501, Kailashnath Arcade, plot-1-65/A/1/62, opp. HDFC Bank Lane, Kakatiya Hills, Guttala_Begumpet, Kavuri Hills, Madhapur, Hyderabad, Telangana 500081.</p> 
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1903.1895993974179!2d78.39739417264617!3d17.441555468824916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91a4e4928973%3A0x8d7c67dd80ee8410!2sKailashnath%20Arcade!5e0!3m2!1sen!2sin!4v1727070026486!5m2!1sen!2sin 
+            &disable_default_ui=true&zoom=14&scrollwheel=false"
+            width="350" height="200" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div> 
+    </div> 
+    <footer class="footer bg-dark text-white py-2">
+        <div class="container text-center">
+            <p>&copy; 2024 Your SN IT SOLUTIONS. All rights reserved.</p>
+        </div>
+    </footer>
+    <script> 
+        const emailInput = document.querySelector('input[name="email"]'); 
+        emailInput.addEventListener('input', () => { 
+            const emailValue = emailInput.value; 
+            if (!/^[a-zA-Z]{2}[a-zA-Z0-9]*@gmail\.com$/.test(emailValue)) {
+                console.log('Invalid email format'); 
+                // Display error message or disable submit button 
+            } 
+        }); 
+    </script> 
+</body> 
+</html>
